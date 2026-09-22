@@ -7,6 +7,7 @@ import java.util.UUID;
 public record CreateReservationCommand(
         UUID roomId,
         UUID requesterId,
-        TimeSlot timeSlot
+        TimeSlot timeSlot,
+        int attendees
 ) {
 }
