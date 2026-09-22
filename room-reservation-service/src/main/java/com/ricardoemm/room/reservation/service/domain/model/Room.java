@@ -9,10 +9,14 @@ import java.util.UUID;
 @Getter
 @Builder
 @AllArgsConstructor
-public class User {
+public class Room {
     private UUID id;
     private String name;
-    private String surname;
-    private String email;
-    private UserRole role;
+    private String location;
+    private int capacity;
+    private boolean active;
+
+    public boolean canHost(int attendees) {
+        return active && attendees <= capacity;
+    }
 }
