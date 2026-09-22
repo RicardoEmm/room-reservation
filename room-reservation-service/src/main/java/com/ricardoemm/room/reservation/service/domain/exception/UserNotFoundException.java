@@ -1,0 +1,7 @@
+package com.ricardoemm.room.reservation.service.domain.exception;
+
+public final class UserNotFoundException extends DomainException {
+    public UserNotFoundException(String message) {
+        super(message);
+    }
+}
