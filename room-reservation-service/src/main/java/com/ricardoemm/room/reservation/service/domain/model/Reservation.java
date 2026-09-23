@@ -33,6 +33,26 @@ public class Reservation {
         this.createdAt = createdAt;
     }
 
+    private Reservation(
+            UUID id,
+            Room room,
+            User requester,
+            ReservationStatus status,
+            TimeSlot timeSlot,
+            LocalDateTime createdAt,
+            LocalDateTime cancelledAt,
+            User cancelledBy
+    ) {
+        this.id = id;
+        this.room = room;
+        this.requester = requester;
+        this.status = status;
+        this.timeSlot = timeSlot;
+        this.createdAt = createdAt;
+        this.cancelledAt = cancelledAt;
+        this.cancelledBy = cancelledBy;
+    }
+
     public static Reservation requestedBy(User requester, Room room, TimeSlot timeSlot, Clock clock) {
         if (!room.isActive())
             throw new InvalidReservationStateException("room is not available");
@@ -43,6 +63,28 @@ public class Reservation {
                 timeSlot,
                 ReservationStatus.CONFIRMED,
                 LocalDateTime.now(clock)
+        );
+    }
+
+    public static Reservation reconstitute(
+            UUID id,
+            Room room,
+            User requester,
+            ReservationStatus status,
+            TimeSlot timeSlot,
+            LocalDateTime createdAt,
+            LocalDateTime cancelledAt,
+            User cancelledBy
+    ) {
+        return new Reservation(
+                id,
+                room,
+                requester,
+                status,
+                timeSlot,
+                createdAt,
+                cancelledAt,
+                cancelledBy
         );
     }
 
@@ -87,4 +129,20 @@ public class Reservation {
         this.cancelledAt = LocalDateTime.now(clock);
         this.cancelledBy = actor;
     }
+
+    public UUID getId() { return id; }
+
+    public Room getRoom() { return room; }
+
+    public User getRequester() { return requester; }
+
+    public ReservationStatus getStatus() { return status; }
+
+    public TimeSlot getTimeSlot() { return timeSlot; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+
+    public LocalDateTime getCancelledAt() { return cancelledAt; }
+
+    public User getCancelledBy() { return cancelledBy; }
 }

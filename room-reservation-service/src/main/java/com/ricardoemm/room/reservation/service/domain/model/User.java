@@ -22,6 +22,10 @@ public class User {
         return new User(null, name, surname, email, role);
     }
 
+    public static User reconstitute(UUID id, String name, String surname, String email, UserRole role) {
+        return new User(id, name, surname, email, role);
+    }
+
     public boolean isAdmin() {
         return role == UserRole.ADMIN;
     }
