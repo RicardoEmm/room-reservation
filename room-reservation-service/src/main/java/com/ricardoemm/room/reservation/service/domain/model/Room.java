@@ -22,6 +22,10 @@ public class Room {
         return new Room(null, name, location, capacity, true);
     }
 
+    public static Room reconstitute(UUID id, String name, String location, int capacity, boolean active) {
+        return new Room(id, name, location, capacity, active);
+    }
+
     public boolean canHost(int attendees) {
         return active && attendees <= capacity;
     }

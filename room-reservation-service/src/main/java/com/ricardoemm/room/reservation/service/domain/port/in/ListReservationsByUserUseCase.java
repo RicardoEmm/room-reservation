@@ -6,5 +6,5 @@ import java.util.List;
 import java.util.UUID;
 
 public interface ListReservationsByUserUseCase {
-    List<Reservation> listByUserId(UUID userId);
+    List<Reservation> listByRequesterId(UUID requesterId);
 }

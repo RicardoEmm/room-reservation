@@ -9,6 +9,6 @@ import java.util.UUID;
 public interface ReservationRepositoryPort {
     Optional<Reservation> findById(UUID id);
     Reservation save(Reservation reservation);
-    List<Reservation> findByUserId(UUID userId);
+    List<Reservation> findByRequesterId(UUID requesterId);
     List<Reservation> findByRoomId(UUID roomId);
 }

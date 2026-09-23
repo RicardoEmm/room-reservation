@@ -15,7 +15,7 @@ public class ListReservationsByUserService implements ListReservationsByUserUseC
 
     private final ReservationRepositoryPort reservationRepositoryPort;
     @Override
-    public List<Reservation> listByUserId(UUID userId) {
-        return reservationRepositoryPort.findByUserId(userId);
+    public List<Reservation> listByRequesterId(UUID requesterId) {
+        return reservationRepositoryPort.findByRequesterId(requesterId);
     }
 }
