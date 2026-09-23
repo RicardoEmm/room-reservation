@@ -1,0 +1,16 @@
+server:
+  port: ${SERVICE_PORT:8080}
+
+spring:
+  application:
+    name: room-reservation-service
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${POSTGRES_DB:room_reservation_db}?sslmode=${DB_SSLMODE:disable}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update

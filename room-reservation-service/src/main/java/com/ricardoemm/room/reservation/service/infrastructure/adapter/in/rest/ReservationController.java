@@ -30,7 +30,7 @@ public class ReservationController {
     public ResponseEntity<List<RequesterReservationsGroupResponse>> getReservationByRequesterId(
             @PathVariable("requesterId") final UUID requesterId
     ) {
-        List<Reservation> reservation = listReservationsByUserUseCase.listByUserId(requesterId);
+        List<Reservation> reservation = listReservationsByUserUseCase.listByRequesterId(requesterId);
         return ResponseEntity.ok(RequesterReservationsGroupResponse.fromList(reservation));
     }
 
